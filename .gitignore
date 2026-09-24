@@ -1,0 +1,67 @@
+# =============================================================================
+# CollegeHub - Root Git Ignore Configuration
+# =============================================================================
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+package-lock.json.bak
+
+# Environment variables & Sensitive Credentials (CRITICAL)
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+client/.env
+client/.env.*
+server/.env
+server/.env.*
+
+# Allow committing safe environment example templates
+!.env.example
+!client/.env.example
+!server/.env.example
+
+# Production Build outputs
+dist/
+dist-ssr/
+client/dist/
+server/dist/
+build/
+*.local
+
+# Runtime Uploads & Media Storage
+uploads/
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs and debug files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & OS Metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+
+# Temporary scratch directories
+scratch/
+tmp/
+temp/
