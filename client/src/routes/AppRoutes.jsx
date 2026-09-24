@@ -93,7 +93,7 @@ export const AppRoutes = () => {
       <Route path="/register" element={<Register />} />
       <Route path="/setup-admin" element={<SetupAdmin />} />
 
-      {/* Main role-based Dashboard */}
+      {/* Main role-based Dashboard routes */}
       <Route
         path="/"
         element={
@@ -102,10 +102,66 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <DynamicDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/dashboard"
+        element={
+          <ProtectedRoute allowedRoles={['admin']}>
+            <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/faculty/dashboard"
+        element={
+          <ProtectedRoute allowedRoles={['faculty']}>
+            <FacultyDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/maintenance/dashboard"
+        element={
+          <ProtectedRoute allowedRoles={['maintenance_staff']}>
+            <MaintenanceDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/transport/dashboard"
+        element={
+          <ProtectedRoute allowedRoles={['transport_staff']}>
+            <TransportDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/club/dashboard"
+        element={
+          <ProtectedRoute allowedRoles={['club_coordinator']}>
+            <ClubDashboard />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Global & Shared Core Pages */}
       <Route
         path="/profile"
+        element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile/:id"
         element={
           <ProtectedRoute>
             <Profile />
@@ -130,8 +186,24 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/my-certificates"
+        element={
+          <ProtectedRoute>
+            <MyCertificates />
+          </ProtectedRoute>
+        }
+      />
 
-      {/* Campus Modules */}
+      {/* Campus Modules (with dual aliases matching Sidebar & Cards) */}
+      <Route
+        path="/campus-connect"
+        element={
+          <ProtectedRoute>
+            <CampusConnect />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/connect"
         element={
@@ -149,7 +221,6 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-
       <Route
         path="/projects/:id"
         element={
@@ -160,6 +231,14 @@ export const AppRoutes = () => {
       />
 
       <Route
+        path="/skill-swap"
+        element={
+          <ProtectedRoute>
+            <SkillSwapHub />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/skills"
         element={
           <ProtectedRoute>
@@ -168,6 +247,14 @@ export const AppRoutes = () => {
         }
       />
 
+      <Route
+        path="/study-hub"
+        element={
+          <ProtectedRoute>
+            <StudyHub />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/study-groups"
         element={
@@ -187,6 +274,14 @@ export const AppRoutes = () => {
       />
 
       <Route
+        path="/campus-slot"
+        element={
+          <ProtectedRoute>
+            <CampusSlot />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/slots"
         element={
           <ProtectedRoute>
@@ -205,6 +300,14 @@ export const AppRoutes = () => {
       />
 
       <Route
+        path="/campus-lost"
+        element={
+          <ProtectedRoute>
+            <CampusLost />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/lost-found"
         element={
           <ProtectedRoute>
@@ -215,6 +318,14 @@ export const AppRoutes = () => {
 
       <Route
         path="/events"
+        element={
+          <ProtectedRoute>
+            <EventHub />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/events/:id"
         element={
           <ProtectedRoute>
             <EventHub />
@@ -232,6 +343,14 @@ export const AppRoutes = () => {
       />
 
       <Route
+        path="/campus-ride"
+        element={
+          <ProtectedRoute>
+            <CampusRide />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/ride"
         element={
           <ProtectedRoute>
@@ -240,6 +359,14 @@ export const AppRoutes = () => {
         }
       />
 
+      <Route
+        path="/campus-voice"
+        element={
+          <ProtectedRoute>
+            <CampusVoice />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/voice"
         element={

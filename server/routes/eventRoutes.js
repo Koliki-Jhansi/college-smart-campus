@@ -15,11 +15,13 @@ const upload = require('../middleware/uploadMiddleware');
 
 router.get('/', protect, getEvents);
 router.get('/my', protect, getMyRegistrations);
+router.get('/my/registrations', protect, getMyRegistrations);
+router.get('/my-registrations', protect, getMyRegistrations);
 router.get('/my-certificates', protect, getMyCertificates);
+router.get('/certificates/:certificateId/pdf', protect, downloadCertificatePDF);
 router.get('/:id', protect, getEventById);
 router.post('/', protect, authorize('admin', 'club_coordinator', 'faculty'), upload.single('banner'), createEvent);
 router.post('/:id/register', protect, registerForEvent);
 router.post('/check-in', protect, checkInAttendee);
-router.get('/certificates/:certificateId/pdf', protect, downloadCertificatePDF);
 
 module.exports = router;

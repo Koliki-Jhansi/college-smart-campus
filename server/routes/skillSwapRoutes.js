@@ -18,5 +18,6 @@ router.get('/requests', protect, getMySkillRequests);
 router.post('/sessions', protect, scheduleSession);
 router.put('/sessions/:id/complete', protect, completeSession);
 router.get('/my-sessions', protect, getMySessions);
+router.get('/sessions', protect, getMySessions);
 
 module.exports = router;
