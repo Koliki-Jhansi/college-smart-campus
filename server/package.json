@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'No build step required for server'",
+    "build": "npm install",
     "seed": "node scripts/seed.js",
     "seed:demo": "node scripts/seedDemo.js",
     "seed:demo:reset": "node scripts/resetDemo.js"
