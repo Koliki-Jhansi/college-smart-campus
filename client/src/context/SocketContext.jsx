@@ -10,7 +10,8 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     // Initialize Socket.IO connection using environment variable
-    const socketUrl = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+    const rawSocketUrl = import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const socketUrl = rawSocketUrl.trim().replace(/\/api\/?$/, '').replace(/\/+$/, '');
     const socketInstance = io(socketUrl, {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 10,

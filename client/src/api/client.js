@@ -1,8 +1,5 @@
-import axios from 'axios';
-
-const API_BASE_URL = import.meta.env.VITE_API_URL
-  ? `${import.meta.env.VITE_API_URL}/api`
-  : '/api';
+const rawApiUrl = import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.trim().replace(/\/+$/, '') : '';
+const API_BASE_URL = rawApiUrl ? (rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`) : '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -33,7 +30,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('collegehub_refresh_token');
       if (refreshToken) {
         try {
-          const res = await axios.post('/api/auth/refresh', { refreshToken });
+          const res = await axios.post(`${API_BASE_URL}/auth/refresh`, { refreshToken });
           if (res.data.success && res.data.token) {
             localStorage.setItem('collegehub_token', res.data.token);
             originalRequest.headers.Authorization = `Bearer ${res.data.token}`;
