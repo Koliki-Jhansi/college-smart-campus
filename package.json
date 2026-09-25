@@ -1,0 +1,25 @@
+{
+  "name": "college-smart-campus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Smart Campus Collaboration & Student Services Platform",
+  "scripts": {
+    "build": "npm --prefix client install && npm --prefix client run build && npm --prefix server install",
+    "build:client": "npm --prefix client install && npm --prefix client run build",
+    "build:server": "npm --prefix server install",
+    "start": "node server/server.js",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client dev",
+    "seed:demo": "npm --prefix server run seed:demo"
+  },
+  "keywords": [
+    "smart-campus",
+    "college-hub",
+    "react",
+    "express",
+    "nodejs",
+    "mongodb"
+  ],
+  "author": "",
+  "license": "ISC"
+}
